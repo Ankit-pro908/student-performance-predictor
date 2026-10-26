@@ -1,0 +1,104 @@
+DECISION TREE RULES - STUDENT PERFORMANCE PREDICTION
+============================================================
+Read each branch top-down; the final line is the predicted band.
+
+|--- Assignment marks (%) <= 79.55
+|   |--- Assignment marks (%) <= 49.55
+|   |   |--- Attendance (%) <= 75.70
+|   |   |   |--- Study hours/day <= 1.85
+|   |   |   |   |--- class: Poor
+|   |   |   |--- Study hours/day >  1.85
+|   |   |   |   |--- Internal marks (%) <= 40.70
+|   |   |   |   |   |--- class: Poor
+|   |   |   |   |--- Internal marks (%) >  40.70
+|   |   |   |   |   |--- class: Poor
+|   |   |--- Attendance (%) >  75.70
+|   |   |   |--- Study hours/day <= 1.85
+|   |   |   |   |--- class: Poor
+|   |   |   |--- Study hours/day >  1.85
+|   |   |   |   |--- Internal marks (%) <= 47.50
+|   |   |   |   |   |--- class: Average
+|   |   |   |   |--- Internal marks (%) >  47.50
+|   |   |   |   |   |--- class: Average
+|   |--- Assignment marks (%) >  49.55
+|   |   |--- Internal marks (%) <= 65.05
+|   |   |   |--- Study hours/day <= 1.45
+|   |   |   |   |--- Internal marks (%) <= 52.40
+|   |   |   |   |   |--- Assignment marks (%) <= 60.55
+|   |   |   |   |   |   |--- class: Poor
+|   |   |   |   |   |--- Assignment marks (%) >  60.55
+|   |   |   |   |   |   |--- class: Poor
+|   |   |   |   |--- Internal marks (%) >  52.40
+|   |   |   |   |   |--- Attendance (%) <= 74.15
+|   |   |   |   |   |   |--- class: Average
+|   |   |   |   |   |--- Attendance (%) >  74.15
+|   |   |   |   |   |   |--- class: Average
+|   |   |   |--- Study hours/day >  1.45
+|   |   |   |   |--- Internal marks (%) <= 38.95
+|   |   |   |   |   |--- Attendance (%) <= 70.10
+|   |   |   |   |   |   |--- class: Poor
+|   |   |   |   |   |--- Attendance (%) >  70.10
+|   |   |   |   |   |   |--- class: Average
+|   |   |   |   |--- Internal marks (%) >  38.95
+|   |   |   |   |   |--- Study hours/day <= 3.95
+|   |   |   |   |   |   |--- class: Average
+|   |   |   |   |   |--- Study hours/day >  3.95
+|   |   |   |   |   |   |--- class: Average
+|   |   |--- Internal marks (%) >  65.05
+|   |   |   |--- Attendance (%) <= 75.35
+|   |   |   |   |--- Internal marks (%) <= 68.25
+|   |   |   |   |   |--- Internal marks (%) <= 67.45
+|   |   |   |   |   |   |--- class: Average
+|   |   |   |   |   |--- Internal marks (%) >  67.45
+|   |   |   |   |   |   |--- class: Average
+|   |   |   |   |--- Internal marks (%) >  68.25
+|   |   |   |   |   |--- class: Average
+|   |   |   |--- Attendance (%) >  75.35
+|   |   |   |   |--- Study hours/day <= 3.35
+|   |   |   |   |   |--- Assignment marks (%) <= 70.70
+|   |   |   |   |   |   |--- class: Average
+|   |   |   |   |   |--- Assignment marks (%) >  70.70
+|   |   |   |   |   |   |--- class: Good
+|   |   |   |   |--- Study hours/day >  3.35
+|   |   |   |   |   |--- Study hours/day <= 5.95
+|   |   |   |   |   |   |--- class: Good
+|   |   |   |   |   |--- Study hours/day >  5.95
+|   |   |   |   |   |   |--- class: Good
+|--- Assignment marks (%) >  79.55
+|   |--- Attendance (%) <= 74.95
+|   |   |--- class: Average
+|   |--- Attendance (%) >  74.95
+|   |   |--- Internal marks (%) <= 86.85
+|   |   |   |--- Study hours/day <= 4.55
+|   |   |   |   |--- Internal marks (%) <= 60.80
+|   |   |   |   |   |--- class: Average
+|   |   |   |   |--- Internal marks (%) >  60.80
+|   |   |   |   |   |--- Study hours/day <= 3.00
+|   |   |   |   |   |   |--- class: Good
+|   |   |   |   |   |--- Study hours/day >  3.00
+|   |   |   |   |   |   |--- class: Good
+|   |   |   |--- Study hours/day >  4.55
+|   |   |   |   |--- Internal marks (%) <= 75.65
+|   |   |   |   |   |--- Study hours/day <= 6.40
+|   |   |   |   |   |   |--- class: Good
+|   |   |   |   |   |--- Study hours/day >  6.40
+|   |   |   |   |   |   |--- class: Good
+|   |   |   |   |--- Internal marks (%) >  75.65
+|   |   |   |   |   |--- Attendance (%) <= 84.75
+|   |   |   |   |   |   |--- class: Good
+|   |   |   |   |   |--- Attendance (%) >  84.75
+|   |   |   |   |   |   |--- class: Excellent
+|   |   |--- Internal marks (%) >  86.85
+|   |   |   |--- Study hours/day <= 3.95
+|   |   |   |   |--- Assignment marks (%) <= 90.25
+|   |   |   |   |   |--- class: Good
+|   |   |   |   |--- Assignment marks (%) >  90.25
+|   |   |   |   |   |--- class: Excellent
+|   |   |   |--- Study hours/day >  3.95
+|   |   |   |   |--- Assignment marks (%) <= 91.15
+|   |   |   |   |   |--- Internal marks (%) <= 92.05
+|   |   |   |   |   |   |--- class: Excellent
+|   |   |   |   |   |--- Internal marks (%) >  92.05
+|   |   |   |   |   |   |--- class: Excellent
+|   |   |   |   |--- Assignment marks (%) >  91.15
+|   |   |   |   |   |--- class: Excellent

@@ -1,0 +1,14 @@
+# Core libraries used by the project.
+# Install with:  pip install -r requirements.txt
+#
+# Versions are pinned to what the project was built and tested with.
+# scikit-learn must match the version that produced model/*.pkl, otherwise
+# loading the saved model can fail with an "inconsistent version" warning.
+
+streamlit==1.51.0
+plotly==6.3.0
+scikit-learn==1.7.2
+pandas>=2.2,<3
+numpy>=1.26,<3
+joblib>=1.4,<2
+matplotlib>=3.8,<4
