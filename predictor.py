@@ -17,6 +17,7 @@ Contents
 
 from __future__ import annotations
 
+import warnings
 from pathlib import Path
 
 import joblib
@@ -107,7 +108,13 @@ def load_bundle(path: Path | str = MODEL_PATH) -> dict:
             "    python generate_dataset.py\n"
             "    python train_model.py"
         )
-    return joblib.load(path)
+    with warnings.catch_warnings():
+        # A model pickled by an older scikit-learn still loads and predicts
+        # correctly. Streamlit Community Cloud installs the newest release that
+        # has a wheel for its Python version, so the patch release there can
+        # differ from the one used to train - that warning is just noise.
+        warnings.filterwarnings("ignore", message="Trying to unpickle estimator.*")
+        return joblib.load(path)
 
 
 # ---------------------------------------------------------------------------

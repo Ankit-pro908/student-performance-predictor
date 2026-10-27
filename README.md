@@ -84,10 +84,15 @@ student-performance-predictor/
 pip install -r requirements.txt
 ```
 
+> Works on **Python 3.13 – 3.15**. Every runtime dependency is pinned to a
+> version that ships a prebuilt wheel, so nothing has to be compiled (the same
+> setup Streamlit Community Cloud uses).
+
 ### Build the dataset, train, then launch
 
 ```bash
 python generate_dataset.py
+pip install matplotlib      # only needed to redraw model/decision_tree.png
 python train_model.py
 streamlit run app.py
 ```

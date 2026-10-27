@@ -1,14 +1,22 @@
-# Core libraries used by the project.
+# Runtime dependencies for the Streamlit app.
 # Install with:  pip install -r requirements.txt
 #
-# Versions are pinned to what the project was built and tested with.
-# scikit-learn must match the version that produced model/*.pkl, otherwise
-# loading the saved model can fail with an "inconsistent version" warning.
+# Streamlit Community Cloud builds this in a container with no C/C++ toolchain,
+# so every pin below must resolve to a *prebuilt wheel* for the Python version
+# the container runs (3.13, 3.14 or 3.15). Anything that has to be compiled from
+# source kills the build with "installer returned a non-zero exit code".
+#
+#   streamlit 1.66+   -> allows pyarrow >= 22 (wheels exist for 3.14 / 3.15)
+#   scikit-learn 1.9+ -> wheels for cp313 / cp314 / cp315
+#   pandas 3.x        -> wheels for cp313 / cp314 / cp315
+#
+# matplotlib is NOT a runtime dependency. It is only needed to redraw the tree
+# diagram locally:  pip install matplotlib  &&  python train_model.py
 
-streamlit==1.51.0
-plotly==6.3.0
-scikit-learn==1.7.2
-pandas>=2.2,<3
+streamlit==1.66.1
+plotly==6.9.0
+
+scikit-learn>=1.7.2,<2
+pandas>=2.2,<4
 numpy>=1.26,<3
 joblib>=1.4,<2
-matplotlib>=3.8,<4
